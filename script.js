@@ -1,0 +1,80 @@
+const container = document.querySelector('.container');
+const seats = document.querySelectorAll('.row .seat:not(.occupied)');
+const count = document.getElementById('count');
+const total = document.getElementById('total');
+const movieSelect = document.getElementById('movie');
+const resetButton = document.querySelector('.reset');
+
+populateUI();
+
+let ticketPrice = +movieSelect.value;
+
+// Save selected movie index and price
+function setMovieData(movieIndex, moviePrice) {
+  localStorage.setItem('selectedMovieIndex', movieIndex);
+  localStorage.setItem('selectedMoviePrice', moviePrice);
+}
+
+// Update total and cound
+function updateSelectedCounts() {
+  const selectedSeats = document.querySelectorAll('.row .seat.selected');
+
+  const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
+
+  localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+
+  const selectedSeatsCount = selectedSeats.length;
+  count.innerText = selectedSeatsCount;
+  total.innerText = selectedSeatsCount * ticketPrice;
+}
+
+// Get data from localStorage and populate UI
+function populateUI() {
+  const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+
+  if (selectedSeats !== null && selectedSeats.length > 0) {
+    seats.forEach((seat, index) => {
+      if (selectedSeats.indexOf(index) > -1) {
+        seat.classList.add('selected');
+      }
+    });
+  }
+
+  const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
+
+  if (selectedMovieIndex !== null) {
+    movieSelect.selectedIndex = selectedMovieIndex;
+  }
+}
+
+// Movie select event
+movieSelect.addEventListener('change', e => {
+  ticketPrice = +e.target.value;
+  setMovieData(e.target.selectedIndex, e.target.value);
+  updateSelectedCounts();
+});
+
+// Seat click event
+container.addEventListener('click', e => {
+  if (
+    e.target.classList.contains('seat') &&
+    !e.target.classList.contains('occupied')
+  ) {
+    e.target.classList.toggle('selected');
+
+    updateSelectedCounts();
+  }
+});
+
+// Reset button click event
+resetButton.addEventListener('click', () => {
+  localStorage.removeItem('selectedSeats');
+  localStorage.removeItem('selectedMovieIndex');
+  localStorage.removeItem('selectedMoviePrice');
+  count.innerText = '0';
+  total.innerText = '0';
+  seats.forEach(seat => seat.classList.remove('selected'));
+});
+
+// initial count and total set
+updateSelectedCounts();
