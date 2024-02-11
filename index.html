@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!--=============== MY CSS ===============-->
     <link rel="stylesheet" href="style.css" />
+    <!--=============== TITLE ===============-->
     <title>02 - Movie Seat Booking | Bednarski Petr</title>
   </head>
   <body>
+    <!--=============== MOVIES TO CHOOSE ===============-->
     <div class="movie-container">
       <label>Choose a movie:</label>
       <select id="movie">
@@ -18,6 +22,7 @@
       </select>
     </div>
 
+    <!--=============== LEGEND ===============-->
     <ul class="showcase">
       <li>
         <div class="seat"></div>
@@ -34,6 +39,7 @@
       <li><div class="reset">X</div></li>
     </ul>
 
+    <!--=============== CINEMA AREA ===============-->
     <div class="container">
       <div class="screen"></div>
 
@@ -99,10 +105,13 @@
       </div>
     </div>
 
+    <!--=============== PRICE LABEL ===============-->
     <p class="text">
       You have selected <span id="count">0</span> seats for a price of
       <span id="total">0</span> Kč.
     </p>
+
+    <!--=============== WAVE BACKGROUND ===============-->
 
     <div class="background-wave-div">
       <svg
@@ -116,6 +125,8 @@
         ></path>
       </svg>
     </div>
+
+    <!--=============== JAVASCRIPT ===============-->
     <script src="script.js"></script>
   </body>
 </html>

@@ -2,7 +2,7 @@
 
 **The second** of a series of **20 small projects** in **Vanilla JavaScript** from the [**Udemy course**](https://www.udemy.com/course/web-projects-with-vanilla-javascript/) by author [Brad Traversy](https://www.traversymedia.com/) with this [Brad's original GitHub repository](https://github.com/bradtraversy/vanillawebprojects).
 
-# 02: Movie Seat Booking | Intro Project
+# 02: Movie Seat Booking
 
 Display movie choices and seats in a theater to select from in order to purchase tickets
 
@@ -21,3 +21,20 @@ Display movie choices and seats in a theater to select from in order to purchase
 <div style="text-align:center;">
     <img src="02_preview.png" alt="Original solution preview">
 </div>
+
+## My solution preview
+
+<div style="text-align:center;">
+    <img src="my-solution-preview.png" alt="My solution preview">
+</div>
+
+## My solution specifications
+
+- Price is in **Czech crowns (Kč)** value.
+- Added an "**X**" button to clear choice and LocalStorage.
+- Added **wave pattern** to the background.
+
+# Author
+
+Website - [Petr Bednarski](https://github.com/pettik) <br>
+Frontend Mentor - [@pettik](https://www.frontendmentor.io/profile/pettik)
